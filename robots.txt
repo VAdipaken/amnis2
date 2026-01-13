@@ -1,0 +1,39 @@
+# Robots.txt для сайта ООО «АМНИС»
+# https://amnis-geo.ru
+
+# Разрешить всем поисковым роботам индексировать сайт
+User-agent: *
+Allow: /
+
+# Исключить служебные страницы и файлы
+Disallow: /thank-you.php
+Disallow: /telegram.php
+Disallow: /*.json$
+Disallow: /assets/data/
+
+# Разрешить доступ к важным ресурсам
+Allow: /assets/img/
+Allow: /assets/video/
+Allow: /styles.css
+Allow: /script.js
+Allow: /calculator.js
+
+# Указать расположение sitemap
+Sitemap: https://amnis-geo.ru/sitemap.xml
+
+# Специальные правила для популярных поисковых систем
+
+# Яндекс
+User-agent: Yandex
+Allow: /
+Crawl-delay: 1
+
+# Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1

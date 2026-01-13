@@ -1,0 +1,205 @@
+<!-- Пример секции отзывов клиентов -->
+<!-- Этот код можно добавить в index.html перед секцией контактов -->
+
+<section id="reviews" class="reviews-section">
+    <div class="container">
+        <h2>Отзывы наших клиентов</h2>
+        <p class="section-subtitle">Более 200 довольных клиентов по всей России</p>
+        
+        <!-- Schema.org разметка для отзывов -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "ООО «АМНИС»",
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.9",
+                "reviewCount": "47",
+                "bestRating": "5",
+                "worstRating": "1"
+            },
+            "review": [
+                {
+                    "@type": "Review",
+                    "author": {
+                        "@type": "Person",
+                        "name": "Иван Петров"
+                    },
+                    "datePublished": "2024-01-10",
+                    "reviewBody": "Отличная работа! Выполнили топографическую съемку участка быстро и качественно. Все документы подготовили в срок. Рекомендую!",
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": "5",
+                        "bestRating": "5"
+                    }
+                },
+                {
+                    "@type": "Review",
+                    "author": {
+                        "@type": "Person",
+                        "name": "Мария Сидорова"
+                    },
+                    "datePublished": "2024-01-05",
+                    "reviewBody": "Профессиональная команда, современное оборудование. Лазерное сканирование здания выполнено на высшем уровне. Спасибо!",
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": "5",
+                        "bestRating": "5"
+                    }
+                }
+            ]
+        }
+        </script>
+        
+        <div class="reviews-grid">
+            <!-- Отзыв 1 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-author">
+                        <div class="review-avatar">ИП</div>
+                        <div class="review-author-info">
+                            <h4>Иван Петров</h4>
+                            <span class="review-company">ООО "СтройПроект"</span>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="review-date">10 января 2024</span>
+                    </div>
+                </div>
+                <div class="review-body">
+                    <p>Отличная работа! Выполнили топографическую съемку участка быстро и качественно. Все документы подготовили в срок. Особенно понравилось, что менеджер был на связи 24/7 и отвечал на все вопросы. Рекомендую!</p>
+                </div>
+                <div class="review-footer">
+                    <span class="review-service">Топографическая съемка</span>
+                    <span class="review-location">📍 Санкт-Петербург</span>
+                </div>
+            </div>
+            
+            <!-- Отзыв 2 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-author">
+                        <div class="review-avatar">МС</div>
+                        <div class="review-author-info">
+                            <h4>Мария Сидорова</h4>
+                            <span class="review-company">Архитектурное бюро</span>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="review-date">5 января 2024</span>
+                    </div>
+                </div>
+                <div class="review-body">
+                    <p>Профессиональная команда, современное оборудование. Лазерное сканирование здания выполнено на высшем уровне. 3D-модель получилась очень детальной, все деформации видны. Спасибо за качественную работу!</p>
+                </div>
+                <div class="review-footer">
+                    <span class="review-service">Лазерное сканирование</span>
+                    <span class="review-location">📍 Москва</span>
+                </div>
+            </div>
+            
+            <!-- Отзыв 3 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-author">
+                        <div class="review-avatar">АК</div>
+                        <div class="review-author-info">
+                            <h4>Алексей Козлов</h4>
+                            <span class="review-company">Частный заказчик</span>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="review-date">28 декабря 2023</span>
+                    </div>
+                </div>
+                <div class="review-body">
+                    <p>Заказывал геодезические изыскания для строительства дома. Работа выполнена в срок, все документы оформлены правильно. Цена оказалась ниже, чем у конкурентов. Очень доволен результатом!</p>
+                </div>
+                <div class="review-footer">
+                    <span class="review-service">Геодезические изыскания</span>
+                    <span class="review-location">📍 Ленинградская область</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Кнопка "Оставить отзыв" -->
+        <div class="reviews-cta">
+            <button class="cta-button" id="leaveReviewBtn">Оставить отзыв</button>
+            <a href="/reviews.html" class="link-button">Все отзывы →</a>
+        </div>
+        
+        <!-- Статистика отзывов -->
+        <div class="reviews-stats">
+            <div class="stat-item">
+                <div class="stat-value">4.9</div>
+                <div class="stat-label">Средняя оценка</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">47</div>
+                <div class="stat-label">Отзывов</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">98%</div>
+                <div class="stat-label">Рекомендуют</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Модальное окно для отправки отзыва -->
+<div id="reviewModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Оставить отзыв</h3>
+        <form id="reviewForm">
+            <div class="form-group">
+                <label>Ваше имя *</label>
+                <input type="text" name="name" required>
+            </div>
+            <div class="form-group">
+                <label>Компания (необязательно)</label>
+                <input type="text" name="company">
+            </div>
+            <div class="form-group">
+                <label>Оценка *</label>
+                <div class="rating-input">
+                    <input type="radio" name="rating" value="5" id="rating5" required>
+                    <label for="rating5">★</label>
+                    <input type="radio" name="rating" value="4" id="rating4">
+                    <label for="rating4">★</label>
+                    <input type="radio" name="rating" value="3" id="rating3">
+                    <label for="rating3">★</label>
+                    <input type="radio" name="rating" value="2" id="rating2">
+                    <label for="rating2">★</label>
+                    <input type="radio" name="rating" value="1" id="rating1">
+                    <label for="rating1">★</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Тип услуги</label>
+                <select name="service">
+                    <option value="">Выберите услугу</option>
+                    <option value="facade">Фасадная съемка</option>
+                    <option value="laser">Лазерное сканирование</option>
+                    <option value="topography">Топографическая съемка</option>
+                    <option value="construction">Геодезическое сопровождение</option>
+                    <option value="survey">Геодезические изыскания</option>
+                    <option value="other">Другое</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Ваш отзыв *</label>
+                <textarea name="review" rows="5" required></textarea>
+            </div>
+            <div class="form-group">
+                <label>Телефон или Email</label>
+                <input type="text" name="contact">
+            </div>
+            <button type="submit" class="cta-button">Отправить отзыв</button>
+        </form>
+    </div>
+</div>

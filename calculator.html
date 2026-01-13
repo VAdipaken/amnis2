@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор стоимости работ - ООО «АМНИС»</title>
+    <meta name="description" content="Онлайн-калькулятор для расчета стоимости геодезических работ. Фасадная съемка, лазерное сканирование, топография, геодезия и другие услуги.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="index.html" class="logo">
+                    <img src="LOGO AMNIS.png" alt="ООО «АМНИС»">
+                </a>
+                <div class="header-trust-widget">
+                    <a href="https://checko.ru/company/amnis-1197847021811" target="_blank" class="trust-badge-mini" title="Проверить компанию на checko.ru - ИНН 7801658531">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Проверено</span>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Главная</a></li>
+                    <li class="nav-item"><a href="index.html#services" class="nav-link">Услуги</a></li>
+                    <li class="nav-item"><a href="service-quiz.html" class="nav-link">Помощник выбора</a></li>
+                    <li class="nav-item"><a href="index.html#about" class="nav-link">О компании</a></li>
+                    <li class="nav-item"><a href="index.html#portfolio" class="nav-link">Примеры работ</a></li>
+                    <li class="nav-item"><a href="gov-customers.html" class="nav-link nav-link-highlight">
+                        Госзаказчикам
+                        <span class="nav-badge">44-ФЗ/223-ФЗ</span>
+                    </a></li>
+                    <li class="nav-item"><a href="index.html#guarantees" class="nav-link">Гарантии</a></li>
+                    <li class="nav-item"><a href="index.html#equipment" class="nav-link">Оборудование</a></li>
+                    <li class="nav-item"><a href="index.html#contacts" class="nav-link">Контакты</a></li>
+                </ul>
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Back to Home Button -->
+        <div class="container" style="padding-top: 20px;">
+            <a href="index.html" class="back-to-home-btn" style="display: inline-flex; align-items: center; gap: 8px; color: var(--primary-color); text-decoration: none; font-weight: 600; margin-bottom: 20px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Вернуться на главную
+            </a>
+        </div>
+        
+        <!-- Quick Calculator Section -->
+        <section id="calculator" class="calculator-section">
+            <div class="container">
+                <div class="calculator-header">
+                    <h2>Быстрый расчет стоимости работ</h2>
+                    <p class="section-subtitle">Онлайн-калькулятор для предварительной оценки стоимости геодезических работ</p>
+                    <p style="text-align: center; margin-top: 15px;">
+                        <a href="service-quiz.html" style="color: var(--primary-color); text-decoration: underline;">Не знаете, какая услуга вам нужна? Пройдите наш помощник выбора →</a>
+                    </p>
+                </div>
+                
+                <div class="calculator-wrapper">
+                    <div class="calculator-steps" id="calculatorSteps">
+                        <!-- Step 1: Service Type -->
+                        <div class="calculator-step active" data-step="1">
+                            <h3>Выберите тип работ</h3>
+                            <div class="calculator-options service-types">
+                                <button type="button" class="option-btn service-type-btn" data-service="facade" data-baseprice="10" data-unit="м²">
+                                    <span class="option-icon">🏢</span>
+                                    <span class="option-label">Фасадная съемка</span>
+                                    <span class="option-price">от 10 руб/м²</span>
+                                </button>
+                                <button type="button" class="option-btn service-type-btn" data-service="laser" data-baseprice="20000" data-unit="га">
+                                    <span class="option-icon">📡</span>
+                                    <span class="option-label">Лазерное сканирование местности</span>
+                                    <span class="option-price">от 20 000 руб/га</span>
+                                    <span class="option-desc">Облако точек E57, Laz/las</span>
+                                </button>
+                                <button type="button" class="option-btn service-type-btn" data-service="topography" data-baseprice="45000" data-unit="га">
+                                    <span class="option-icon">🗺️</span>
+                                    <span class="option-label">Топографическая съемка</span>
+                                    <span class="option-price">от 45 000 руб/га</span>
+                                </button>
+                                <button type="button" class="option-btn service-type-btn" data-service="survey" data-baseprice="45000" data-unit="га">
+                                    <span class="option-icon">🔍</span>
+                                    <span class="option-label">Геодезические изыскания</span>
+                                    <span class="option-price">от 45 000 руб/га</span>
+                                </button>
+                                <button type="button" class="option-btn service-type-btn" data-service="cadastre" data-baseprice="18000" data-unit="участок">
+                                    <span class="option-icon">📋</span>
+                                    <span class="option-label">Кадастровые работы</span>
+                                    <span class="option-price">от 18 000 руб/участок</span>
+                                </button>
+                                <button type="button" class="option-btn service-type-btn" data-service="demolition" data-baseprice="34000" data-unit="объект">
+                                    <span class="option-icon">🏚️</span>
+                                    <span class="option-label">Проектирование демонтажа</span>
+                                    <span class="option-price">от 34 000 руб</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Object Type (для фасадной съемки и лазерного сканирования) -->
+                        <div class="calculator-step" data-step="2" id="step2ObjectType">
+                            <h3>Тип объекта</h3>
+                            <div class="calculator-options">
+                                <button type="button" class="option-btn object-type-btn" data-value="residential" data-multiplier="1.0">
+                                    <span class="option-icon">🏠</span>
+                                    <span class="option-label">Жилой дом</span>
+                                </button>
+                                <button type="button" class="option-btn object-type-btn" data-value="industrial" data-multiplier="1.8">
+                                    <span class="option-icon">🏭</span>
+                                    <span class="option-label">Промышленное здание</span>
+                                </button>
+                                <button type="button" class="option-btn object-type-btn" data-value="monument" data-multiplier="2.5">
+                                    <span class="option-icon">🏛️</span>
+                                    <span class="option-label">Памятник архитектуры</span>
+                                </button>
+                                <button type="button" class="option-btn object-type-btn" data-value="floor-plan" data-multiplier="1.2">
+                                    <span class="option-icon">📐</span>
+                                    <span class="option-label">Поэтажный план</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Location (для топографической съемки) -->
+                        <div class="calculator-step" data-step="2" id="step2Location" style="display: none;">
+                            <h3>Выбор локации</h3>
+                            <div class="calculator-options">
+                                <button type="button" class="option-btn location-type-btn" data-value="spb">
+                                    <span class="option-icon">🏙️</span>
+                                    <span class="option-label">Санкт-Петербург</span>
+                                </button>
+                                <button type="button" class="option-btn location-type-btn" data-value="lo">
+                                    <span class="option-icon">🌲</span>
+                                    <span class="option-label">Ленинградская область</span>
+                                </button>
+                            </div>
+                            <!-- Дополнительные опции согласования (появляются после выбора локации) -->
+                            <div id="locationApprovalOptions" class="location-approval-options" style="display: none; margin-top: 30px;">
+                                <h4 id="approvalTitle" style="margin-bottom: 15px; color: var(--primary-color);"></h4>
+                                <div class="calculator-options">
+                                    <button type="button" class="option-btn approval-type-btn" data-value="yes">
+                                        <span class="option-icon">✅</span>
+                                        <span class="option-label">Да</span>
+                                    </button>
+                                    <button type="button" class="option-btn approval-type-btn" data-value="no">
+                                        <span class="option-icon">❌</span>
+                                        <span class="option-label">Нет</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Survey Type (для геодезических изысканий) -->
+                        <div class="calculator-step" data-step="2" id="step2SurveyType" style="display: none;">
+                            <h3>Тип геодезических изысканий</h3>
+                            <div class="calculator-options">
+                                <button type="button" class="option-btn survey-type-btn" data-survey-type="topography">
+                                    <span class="option-icon">🗺️</span>
+                                    <span class="option-label">Топографическая съемка</span>
+                                    <span class="option-price">от 65 000 руб/га</span>
+                                </button>
+                                <button type="button" class="option-btn survey-type-btn" data-survey-type="geology">
+                                    <span class="option-icon">⛏️</span>
+                                    <span class="option-label">Геология</span>
+                                    <span class="option-price">от 60 000 руб</span>
+                                </button>
+                                <button type="button" class="option-btn survey-type-btn" data-survey-type="ecology">
+                                    <span class="option-icon">🌿</span>
+                                    <span class="option-label">Экология</span>
+                                    <span class="option-price">250 000 руб/га</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Ecology Area (для экологических изысканий) -->
+                        <div class="calculator-step" data-step="3" id="step3EcologyArea" style="display: none;">
+                            <h3>Площадь территории (га)</h3>
+                            <div class="range-input-wrapper">
+                                <input type="range" id="ecologyAreaRange" min="1" max="50" step="1" value="1" class="range-input">
+                                <div class="range-display">
+                                    <span id="ecologyAreaValue">1</span> <span id="ecologyAreaUnit">га</span>
+                                </div>
+                                <div class="range-labels">
+                                    <span>1 га</span>
+                                    <span>50 га</span>
+                                </div>
+                            </div>
+                            <div class="quick-area-buttons" id="ecologyQuickButtons">
+                                <button class="quick-btn ecology-area-btn" data-area="1">1</button>
+                                <button class="quick-btn ecology-area-btn" data-area="5">5</button>
+                                <button class="quick-btn ecology-area-btn" data-area="10">10</button>
+                                <button class="quick-btn ecology-area-btn" data-area="25">25</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Parameters (Area/Volume/etc) для обычных услуг -->
+                        <div class="calculator-step" data-step="3" id="step3Parameters">
+                            <h3 id="parameterTitle">Площадь объекта</h3>
+                            <div class="range-input-wrapper">
+                                <input type="range" id="areaRange" min="100" max="10000" step="50" value="500" class="range-input">
+                                <div class="range-display">
+                                    <span id="areaValue">500</span> <span id="areaUnit">м²</span>
+                                </div>
+                                <div class="range-labels">
+                                    <span id="rangeMin">100 м²</span>
+                                    <span id="rangeMax">10 000 м²</span>
+                                </div>
+                            </div>
+                            <div class="quick-area-buttons" id="quickButtons">
+                                <button class="quick-btn" data-area="100">100</button>
+                                <button class="quick-btn" data-area="500">500</button>
+                                <button class="quick-btn" data-area="1000">1 000</button>
+                                <button class="quick-btn" data-area="3000">3 000</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Territory Type (для топографической съемки) -->
+                        <div class="calculator-step" data-step="3" id="step3Territory" style="display: none;">
+                            <h3>Территория изыскания</h3>
+                            <div class="calculator-options">
+                                <button type="button" class="option-btn territory-type-btn" data-value="industrial-zone" data-multiplier="1.2">
+                                    <span class="option-icon">🏭</span>
+                                    <span class="option-label">Пром зона</span>
+                                </button>
+                                <button type="button" class="option-btn territory-type-btn" data-value="built-up" data-multiplier="1.0">
+                                    <span class="option-icon">🏘️</span>
+                                    <span class="option-label">Застроенная территория</span>
+                                </button>
+                                <button type="button" class="option-btn territory-type-btn" data-value="unbuilt" data-multiplier="0.8">
+                                    <span class="option-icon">🌳</span>
+                                    <span class="option-label">Незастроенная территория</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Parameters для топографической съемки (площадь) -->
+                        <div class="calculator-step" data-step="4" id="step4TopographyArea" style="display: none;">
+                            <h3>Площадь территории</h3>
+                            <div class="range-input-wrapper">
+                                <input type="range" id="topographyAreaRange" min="0.1" max="100" step="0.1" value="1" class="range-input">
+                                <div class="range-display">
+                                    <span id="topographyAreaValue">1</span> <span id="topographyAreaUnit">га</span>
+                                </div>
+                                <div class="range-labels">
+                                    <span id="topographyRangeMin">0.1 га</span>
+                                    <span id="topographyRangeMax">100 га</span>
+                                </div>
+                            </div>
+                            <div class="quick-area-buttons" id="topographyQuickButtons">
+                                <button class="quick-btn" data-area="0.5">0.5</button>
+                                <button class="quick-btn" data-area="1">1</button>
+                                <button class="quick-btn" data-area="5">5</button>
+                                <button class="quick-btn" data-area="10">10</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Geology Parameters (для геологических изысканий) -->
+                        <div class="calculator-step" data-step="2" id="step2Geology" style="display: none;">
+                            <h3>Параметры бурения</h3>
+                            <div class="geology-params">
+                                <div class="param-group">
+                                    <label for="wellsCount">Количество скважин</label>
+                                    <div class="range-input-wrapper">
+                                        <input type="range" id="wellsCountRange" min="1" max="20" step="1" value="3" class="range-input">
+                                        <div class="range-display">
+                                            <span id="wellsCountValue">3</span> <span>шт.</span>
+                                        </div>
+                                        <div class="range-labels">
+                                            <span>1 шт.</span>
+                                            <span>20 шт.</span>
+                                        </div>
+                                    </div>
+                                    <div class="quick-area-buttons">
+                                        <button class="quick-btn wells-btn" data-wells="2">2</button>
+                                        <button class="quick-btn wells-btn" data-wells="3">3</button>
+                                        <button class="quick-btn wells-btn" data-wells="5">5</button>
+                                        <button class="quick-btn wells-btn" data-wells="10">10</button>
+                                    </div>
+                                </div>
+                                <div class="param-group" style="margin-top: 30px;">
+                                    <label for="drillingDepth">Глубина бурения (метров на скважину)</label>
+                                    <div class="range-input-wrapper">
+                                        <input type="range" id="drillingDepthRange" min="3" max="30" step="1" value="8" class="range-input">
+                                        <div class="range-display">
+                                            <span id="drillingDepthValue">8</span> <span>м</span>
+                                        </div>
+                                        <div class="range-labels">
+                                            <span>3 м</span>
+                                            <span>30 м</span>
+                                        </div>
+                                    </div>
+                                    <div class="quick-area-buttons">
+                                        <button class="quick-btn depth-btn" data-depth="6">6 м</button>
+                                        <button class="quick-btn depth-btn" data-depth="8">8 м</button>
+                                        <button class="quick-btn depth-btn" data-depth="10">10 м</button>
+                                        <button class="quick-btn depth-btn" data-depth="15">15 м</button>
+                                    </div>
+                                </div>
+                                <div class="geology-summary" style="margin-top: 20px; padding: 15px; background: var(--bg-light); border-radius: 8px;">
+                                    <p style="font-size: 1.1rem; color: var(--primary-color);">
+                                        Итого: <strong id="totalDrillingMeters">24</strong> погонных метров бурения
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Cadastre Type (для кадастровых работ) -->
+                        <div class="calculator-step" data-step="2" id="step2CadastreType" style="display: none;">
+                            <h3>Тип кадастровых работ</h3>
+                            <div class="calculator-options">
+                                <button type="button" class="option-btn cadastre-type-btn" data-value="boundary" data-price="15000">
+                                    <span class="option-icon">📏</span>
+                                    <span class="option-label">Межевой план</span>
+                                    <span class="option-price">от 15 000 руб/план</span>
+                                    <span class="option-desc" style="font-size: 0.85rem; color: #666;">Градация: 1-5 шт: 15К, 6-15: 13К, 16-50: 10К</span>
+                                </button>
+                                <button type="button" class="option-btn cadastre-type-btn" data-value="technical" data-price="18000">
+                                    <span class="option-icon">🏗️</span>
+                                    <span class="option-label">Технический план</span>
+                                    <span class="option-price">от 18 000 руб/объект</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Cadastre Count (для кадастровых работ) -->
+                        <div class="calculator-step" data-step="3" id="step3CadastreCount" style="display: none;">
+                            <h3 id="cadastreCountTitle">Количество участков</h3>
+                            <div class="range-input-wrapper">
+                                <input type="range" id="cadastreCountRange" min="1" max="50" step="1" value="1" class="range-input">
+                                <div class="range-display">
+                                    <span id="cadastreCountValue">1</span> <span id="cadastreCountUnit">участок</span>
+                                </div>
+                                <div class="range-labels">
+                                    <span>1</span>
+                                    <span>50</span>
+                                </div>
+                            </div>
+                            <div class="quick-area-buttons" id="cadastreQuickButtons">
+                                <button class="quick-btn cadastre-count-btn" data-count="1">1</button>
+                                <button class="quick-btn cadastre-count-btn" data-count="3">3</button>
+                                <button class="quick-btn cadastre-count-btn" data-count="5">5</button>
+                                <button class="quick-btn cadastre-count-btn" data-count="10">10</button>
+                                <button class="quick-btn cadastre-count-btn" data-count="20">20</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Additional Options -->
+                        <div class="calculator-step" data-step="4">
+                            <h3>Дополнительные опции</h3>
+                            <div class="calculator-options">
+                                <button type="button" class="option-btn option-type-btn" data-value="basic" data-addprice="0">
+                                    <span class="option-icon">📐</span>
+                                    <span class="option-label">Базовый вариант</span>
+                                    <span class="option-desc">Только основные работы</span>
+                                </button>
+                                <button type="button" class="option-btn option-type-btn" data-value="standard" data-addprice="0.3">
+                                    <span class="option-icon">📊</span>
+                                    <span class="option-label">Стандартный (+30%)</span>
+                                    <span class="option-desc">С чертежами и документацией</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Demolition Options (для проекта демонтажа) -->
+                        <div class="calculator-step" data-step="3" id="step3DemolitionOptions" style="display: none;">
+                            <h3>Выберите комплект документации</h3>
+                            <div style="padding: 20px; background: var(--bg-light); border-radius: 8px;">
+                                <label style="display: flex; align-items: center; padding: 15px; background: white; border-radius: 8px; margin-bottom: 15px; cursor: pointer; border: 2px solid var(--border-color);">
+                                    <input type="checkbox" id="demolitionEstimateCheckbox" style="width: 20px; height: 20px; margin-right: 15px; cursor: pointer;">
+                                    <div style="flex: 1;">
+                                        <div style="font-weight: 600; font-size: 1.1rem; margin-bottom: 5px;">
+                                            📊 Проект + смета (ресурсно-индексный метод)
+                                        </div>
+                                        <div style="color: #666; font-size: 0.95rem;">
+                                            Дополнительно +40 000 ₽
+                                        </div>
+                                    </div>
+                                </label>
+                                <p style="margin: 15px 0 0 0; color: #666; font-size: 0.9rem;">
+                                    📋 Без выбора: только проектная документация (базовая цена)
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Technical Plan Options (для технического плана) -->
+                        <div class="calculator-step" data-step="3" id="step3TechnicalOptions" style="display: none;">
+                            <h3>Дополнительные опции</h3>
+                            <div style="padding: 20px; background: var(--bg-light); border-radius: 8px;">
+                                <label style="display: flex; align-items: center; padding: 15px; background: white; border-radius: 8px; cursor: pointer; border: 2px solid var(--border-color);">
+                                    <input type="checkbox" id="technicalEstimateCheckbox" style="width: 20px; height: 20px; margin-right: 15px; cursor: pointer;">
+                                    <div style="flex: 1;">
+                                        <div style="font-weight: 600; font-size: 1.1rem; margin-bottom: 5px;">
+                                            📊 Со сметой (ресурсно-индексный метод)
+                                        </div>
+                                        <div style="color: #666; font-size: 0.95rem;">
+                                            Дополнительно +25 000 ₽
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Calculator Navigation -->
+                    <div class="calculator-navigation">
+                        <button class="calc-btn prev-btn" id="calcPrevBtn" style="display: none;">Назад</button>
+                        <button class="calc-btn next-btn" id="calcNextBtn">Далее</button>
+                    </div>
+
+                    <!-- Calculator Result -->
+                    <div class="calculator-result" id="calculatorResult" style="display: none; visibility: hidden;">
+                        <div class="result-header">
+                            <h3>Предварительный расчет</h3>
+                        </div>
+                        <div class="result-content">
+                            <div class="result-item">
+                                <span class="result-label">Тип работ:</span>
+                                <span class="result-value" id="resultServiceName">-</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Базовая стоимость:</span>
+                                <span class="result-value" id="basePrice">10 руб/м²</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Примерная стоимость:</span>
+                                <span class="result-value highlight" id="estimatedCost">от 0 до 0 руб.</span>
+                            </div>
+                            <div class="result-item discount">
+                                <span class="result-label">Скидка 15% при заказе до <span id="discountDate"></span>:</span>
+                                <span class="result-value" id="discountAmount">0 руб.</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Срок выполнения:</span>
+                                <span class="result-value" id="leadTime">0 рабочих дней</span>
+                            </div>
+                        </div>
+                        <div class="result-cta">
+                            <button class="cta-button primary" id="bookCalculationBtn">Забронировать расчет со скидкой</button>
+                            <div class="result-actions">
+                                <button class="result-action-btn" id="saveCalculationBtn" title="Сохранить расчет">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                                        <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                                        <polyline points="7 3 7 8 15 8"></polyline>
+                                    </svg>
+                                    Сохранить
+                                </button>
+                                <button class="result-action-btn" id="printCalculationBtn" title="Печать расчета">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                                        <rect x="6" y="14" width="12" height="8"></rect>
+                                    </svg>
+                                    Печать
+                                </button>
+                                <button class="result-action-btn" id="emailCalculationBtn" title="Отправить на email">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                        <polyline points="22,6 12,13 2,6"></polyline>
+                                    </svg>
+                                    Email
+                                </button>
+                                <button class="result-action-btn" id="shareCalculationBtn" title="Поделиться">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="18" cy="5" r="3"></circle>
+                                        <circle cx="6" cy="12" r="3"></circle>
+                                        <circle cx="18" cy="19" r="3"></circle>
+                                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                                    </svg>
+                                    Поделиться
+                                </button>
+                            </div>
+                            <div class="calculation-history" id="calculationHistory" style="display: none;">
+                                <h4>История расчетов</h4>
+                                <div id="historyList"></div>
+                            </div>
+                            <p class="result-note">Точный расчет будет отправлен на вашу почту в течение 30 минут</p>
+                        </div>
+                    </div>
+
+                    <!-- Progress Indicator (динамически генерируется в JS) -->
+                    <div class="calculator-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill" style="width: 25%;"></div>
+                        </div>
+                        <div class="progress-steps" id="progressStepsContainer">
+                            <!-- Шаги генерируются динамически -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="LOGO AMNIS.png" alt="ООО «АМНИС»" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span style="display:none; font-weight: bold; color: white; font-size: 1.5rem;">ООО «АМНИС»</span>
+                    </div>
+                    <p>Геодезические работы и лазерное сканирование в Санкт-Петербурге и Ленинградской области</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p>Телефон: <a href="tel:+79216253441">+7 (921) 625–34–41</a></p>
+                    <p>Email: <a href="mailto:info@amnis.ru">info@amnis.ru</a></p>
+                    <p>Адрес: 196084, г. Санкт-Петербург, Митрофаньевское шоссе, дом 27, литер А, офис 10/6</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Навигация</h4>
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="index.html#services">Услуги</a></li>
+                        <li><a href="index.html#portfolio">Портфолио</a></li>
+                        <li><a href="index.html#contacts">Контакты</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ООО «АМНИС». Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="calculator.js"></script>
+</body>
+</html>
+
